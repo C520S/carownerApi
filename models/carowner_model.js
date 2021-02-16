@@ -6,7 +6,7 @@ const carowner = {
     },
     getByCar: function(callback) {
         return db.query(`select owner.idowner, firstname , lastname , group_concat(brand,model) as "cars of the person"from owner inner join carowner on owner.idowner 
-        = carowner.idowner inner join car on  carowner.idcar = car.idcar group by owner.idowner;`, callback);
+        = carowner.idowner inner join car on  carowner.idcar = car.idcar group by owner.idowner`, callback);
     },
     getById: function(id, callback) {
         return db.query('select * from carowner where idcarowner=?', [id], callback);
