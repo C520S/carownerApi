@@ -7,6 +7,9 @@ const carowner = {
     getById: function(id, callback) {
         return db.query('select * from carowner where idcarowner=?', [id], callback);
     },
+    getById: function(id, callback) {
+        return db.query('select * from car where idcar=?', [id], callback);
+    },
     add: function(carowner, callback) {
         return db.query(
             'insert into carowner (idcar,idowner) values(?,?)', [carowner.idcar, carowner.idowner, ],

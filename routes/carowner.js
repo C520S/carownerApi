@@ -22,6 +22,26 @@ router.get('/:id?',
             });
         }
     });
+    router.get('/:car/:id?',
+    function(request, response) {
+        if (request.params.id) {
+            carowner.getById(request.params.id, function(err, dbResult) {
+                if (err) {
+                    response.json(err);
+                } else {
+                    response.json(dbResult);
+                }
+            });
+        } else {
+            carowner.get(function(err, dbResult) {
+                if (err) {
+                    response.json(err);
+                } else {
+                    response.json(dbResult);
+                }
+            });
+        }
+    });
 
 
 router.post('/',
