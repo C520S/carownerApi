@@ -12,17 +12,7 @@ router.get('/:id?',
                     response.json(dbResult);
                 }
             });
-        } else if (request.params.car){
-            carowner.getByCar(request.params.car, function(err, dbResult) {
-                if (err) {
-                    response.json(err);
-                } else {
-                    response.json(dbResult);
-                }
-            });
-
-
-        }else {
+        } else {
             carowner.get(function(err, dbResult) {
                 if (err) {
                     response.json(err);
@@ -30,13 +20,10 @@ router.get('/:id?',
                     response.json(dbResult);
                 }
             });
-
         }
     });
- 
     
-    
-router.post('/',
+  router.post('/',
     function(request, response) {
         carowner.add(request.body, function(err, dbResult) {
             if (err) {
