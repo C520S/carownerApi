@@ -12,8 +12,8 @@ router.get('/:id?',
                     response.json(dbResult);
                 }
             });
-        } else if (request.params.id){
-            carowner.getByCar(request.params.id, function(err, dbResult) {
+        } else if (request.params.car){
+            carowner.getByCar(request.params.car, function(err, dbResult) {
                 if (err) {
                     response.json(err);
                 } else {
