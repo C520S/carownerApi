@@ -22,7 +22,7 @@ router.get('/:id?',
             });
         }
     });
-    router.get('/:car/:id?',
+    router.get('/:car',
     function(request, response) {
         if (request.params.id) {
             carowner.getById(request.params.id, function(err, dbResult) {
