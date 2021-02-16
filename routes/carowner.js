@@ -22,27 +22,28 @@ router.get('/:id?',
             });
         }
     });
-    router.get('/:car?',
-    function(request, response) {
-        if (request.params.car) {
-            carowner.getByCar(request.params.car, function(err, dbResult) {
-                if (err) {
-                    response.json(err);
-                } else {
-                    response.json(dbResult);
-                }
-            });
-        } else {
-            carowner.get(function(err, dbResult) {
-                if (err) {
-                    response.json(err);
-                } else {
-                    response.json(dbResult);
-                }
-            });
-        }
-    });
-   
+    
+router.getByCar('/:car?',
+function(request, response) {
+    if (request.params.car) {
+        carowner.getByCar(request.params.car, function(err, dbResult) {
+            if (err) {
+                response.json(err);
+            } else {
+                response.json(dbResult);
+            }
+        });
+    } else {
+        carowner.get(function(err, dbResult) {
+            if (err) {
+                response.json(err);
+            } else {
+                response.json(dbResult);
+            }
+        });
+    }
+})
+  
 
 
 router.post('/',
