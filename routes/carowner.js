@@ -22,10 +22,10 @@ router.get('/:id?',
             });
         }
     });
-    router.get('/:car',
+    router.get('/:car?',
     function(request, response) {
-        if (request.params) {
-            carowner.getByCar(request.params, function(err, dbResult) {
+        if (request.params.car) {
+            carowner.getByCar(request.params.car, function(err, dbResult) {
                 if (err) {
                     response.json(err);
                 } else {
@@ -42,6 +42,7 @@ router.get('/:id?',
             });
         }
     });
+   
 
 
 router.post('/',
