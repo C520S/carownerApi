@@ -23,29 +23,6 @@ router.get('/:id?',
         }
     });
     
-router.getByCar('/:car?',
-function(request, response) {
-    if (request.params.car) {
-        carowner.getByCar(request.params.car, function(err, dbResult) {
-            if (err) {
-                response.json(err);
-            } else {
-                response.json(dbResult);
-            }
-        });
-    } else {
-        carowner.get(function(err, dbResult) {
-            if (err) {
-                response.json(err);
-            } else {
-                response.json(dbResult);
-            }
-        });
-    }
-});
-  
-
-
 router.post('/',
     function(request, response) {
         carowner.add(request.body, function(err, dbResult) {
